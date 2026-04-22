@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    
     public static class DbInitializer
     {
         public static void Seed(AppDbContext context)
