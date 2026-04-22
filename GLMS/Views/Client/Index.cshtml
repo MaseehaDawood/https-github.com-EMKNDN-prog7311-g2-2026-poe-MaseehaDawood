@@ -1,0 +1,20 @@
+﻿@model IEnumerable<GLMS.Models.Client>
+
+<h2>Clients</h2>
+
+<a href="/Client/Create">Add Client</a>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Region</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Region</td>
+        </tr>
+    }
+</table>

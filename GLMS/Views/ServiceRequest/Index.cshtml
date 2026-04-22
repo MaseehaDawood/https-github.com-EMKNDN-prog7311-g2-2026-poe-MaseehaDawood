@@ -1,0 +1,22 @@
+﻿@model IEnumerable<GLMS.Models.ServiceRequest>
+
+<h2>Requests</h2>
+
+<a href="/ServiceRequest/Create">Add Request</a>
+
+<table border="1">
+    <tr>
+        <th>Description</th>
+        <th>USD</th>
+        <th>ZAR</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Description</td>
+            <td>@item.CostUSD</td>
+            <td>@item.CostZAR</td>
+        </tr>
+    }
+</table>

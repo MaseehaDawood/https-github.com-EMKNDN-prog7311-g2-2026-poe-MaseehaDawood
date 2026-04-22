@@ -1,0 +1,27 @@
+﻿@model IEnumerable<GLMS.Models.Contract>
+
+<h2>Contracts</h2>
+
+<a asp-action="Create">Add Contract</a>
+
+<table border="1">
+<tr>
+    <th>Client</th>
+    <th>Status</th>
+    <th>File</th>
+</tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.Client.Name</td>
+        <td>@item.Status</td>
+        <td>
+            @if(item.FilePath != null)
+            {
+                <a href="@item.FilePath" target="_blank">Download</a>
+            }
+        </td>
+    </tr>
+}
+</table>

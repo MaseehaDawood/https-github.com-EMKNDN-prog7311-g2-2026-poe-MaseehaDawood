@@ -1,0 +1,53 @@
+﻿@model GLMS.Models.Contract
+
+<h2>Create Contract</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+
+    <div asp-validation-summary="All"></div>
+
+    <div>
+        Client:
+        <select asp-for="ClientId">
+            @foreach (var c in ViewBag.Clients)
+            {
+                <option value="@c.ClientId">@c.Name</option>
+            }
+        </select>
+    </div>
+
+    <select asp-for="ClientId" class="form-control">
+        <option value="">-- Select Client --</option>
+        @foreach (var c in ViewBag.Clients)
+        {
+            <option value="@c.ClientId">@c.Name</option>
+        }
+    </select>
+
+
+    <div>
+        <input asp-for="StartDate" type="date" class="form-control" />
+        <input asp-for="EndDate" type="date" class="form-control" />
+    </div>
+
+    <div>
+        Status:
+        <select asp-for="Status">
+            <option>Active</option>
+            <option>Expired</option>
+        </select>
+    </div>
+
+    <div>
+        Service Level: <input asp-for="ServiceLevel" />
+    </div>
+
+    <div>
+        Upload PDF:
+        <input type="file" name="file" />
+    </div>
+
+    <button type="submit">Save</button>
+
+
+</form>
