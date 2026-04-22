@@ -52,6 +52,9 @@ namespace GLMS.Controllers
             var rate = await _currency.GetUsdToZar();
             request.CostZAR = _pricing.Calculate(request.CostUSD, rate);
 
+
+            request.Status = "Pending";
+
             _context.ServiceRequests.Add(request);
             await _context.SaveChangesAsync();
 
