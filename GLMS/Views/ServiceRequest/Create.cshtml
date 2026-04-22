@@ -1,30 +1,43 @@
 ﻿@model GLMS.Models.ServiceRequest
 
-<h2>Create Request</h2>
+<h2>Create Service Request</h2>
 
 <form asp-action="Create" method="post">
 
-    <div asp-validation-summary="All"></div>
+    <!-- 🔴 SHOW VALIDATION ERRORS -->
+    <div asp-validation-summary="All" style="color:red;"></div>
 
+    <!-- CONTRACT DROPDOWN -->
     <div>
-        Contract:
-        <select asp-for="ContractId">
+        <label>Contract Status</label>
+        <select asp-for="ContractId" class="form-control">
+            <option value="">-- Select Contract --</option>
             @foreach (var c in ViewBag.Contracts)
             {
-                <option value="@c.ContractId">@c.ContractId</option>
+                <option value="@c.ContractId">
+                    @c.Status
+                </option>
             }
         </select>
     </div>
 
+    <br />
+
+    <!-- DESCRIPTION -->
     <div>
-        Description:
-        <input asp-for="Description" />
+        <label>Description</label>
+        <input asp-for="Description" class="form-control" />
     </div>
 
+    <br />
+
+    <!-- COST USD -->
     <div>
-        Cost USD:
-        <input asp-for="CostUSD" />
+        <label>Cost (USD)</label>
+        <input asp-for="CostUSD" class="form-control" />
     </div>
+
+    <br />
 
     <button type="submit">Create</button>
 

@@ -17,10 +17,14 @@ namespace GLMS.Controllers
 
         public IActionResult Index(string status)
         {
-            var contracts = _context.Contracts.Include(c => c.Client).AsQueryable();
+            var contracts = _context.Contracts
+                .Include(c => c.Client)
+                .AsQueryable();
 
             if (!string.IsNullOrEmpty(status))
+            {
                 contracts = contracts.Where(c => c.Status == status);
+            }
 
             return View(contracts.ToList());
         }
